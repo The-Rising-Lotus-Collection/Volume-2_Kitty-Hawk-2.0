@@ -53,6 +53,16 @@ The structural hull substrate is cast inside alpha-quartz powder matrices compre
 | **Adjustable Clearance Range** | The chimney length is designed to occupy approximately **1/3 of the upper section** (harmonic ideal), but is adjustable down to **1/4 or 1/6** if the upper toroidal coil clearance requires additional space—ensuring the coil never intrudes into the main compartment |
 | **The Proximity Gap Buffer** | The flared lip of the chimney terminates exactly short of the upper receiver and emitter puck assemblies. This non-contact evanescent field gap allows power and signals to cross cleanly via capacitive and inductive coupling, preventing mechanical vibration noise from distorting the transmission vectors |
 
+### 2.3 Chimney Casting Protocol
+
+| Step | Action |
+|------|--------|
+| **1** | Erect the copper honeycomb central column mold in the vertical casting rig |
+| **2** | Ensure the 60° flare angle is precisely machined at the upper exit boundary |
+| **3** | Pour the active thixotropic quartz-epoxy slurry into the mold |
+| **4** | Apply 15 MPa isostatic pressure during the 1.5% volumetric curing cycle |
+| **5** | Verify the adjustable clearance range (1/3 → 1/6) is achievable without compromising structural integrity |
+
 ---
 
 ## ⚡ 3. ASYMMETRICAL PROPULSION CORE & POWER DISTRIBUTION NETWORK
@@ -66,7 +76,16 @@ The propulsion framework utilizes continuous, clock-locked energy exchanges betw
 | **Thermal Baseline Limit** | Enforced continuous stable operation at **-196°C (77 Kelvin)** |
 | **Cooling System Topology** | Solid-State Thermoacoustic Stirling Cryocoolers linked directly to hyper-conductive Chemical Vapor Deposition (CVD) diamond thermal highways. This design moves heat away using high-frequency acoustic waves inside sealed gas chambers, entirely eliminating mechanical fluid pumps |
 
-### 3.2 High-Voltage Power Distribution Network
+### 3.2 HTS Toroidal Channel Assembly
+
+| Step | Action |
+|------|--------|
+| **1** | Install the upper and lower HTS toroidal channels in their dedicated housings |
+| **2** | Connect the CVD diamond thermal highways to the thermoacoustic Stirling cryocoolers |
+| **3** | Run the cryocoolers for 180 seconds (3 minutes) to reach the -196°C baseline before active propulsion testing |
+| **4** | Verify the thermal stability at 77 Kelvin with ± 1.0°C tolerance |
+
+### 3.3 High-Voltage Power Distribution Network
 
 | Feature | Specification |
 |---------|---------------|
