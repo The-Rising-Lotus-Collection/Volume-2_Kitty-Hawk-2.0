@@ -73,18 +73,50 @@ The structural hull substrate is cast inside alpha-quartz powder matrices compre
 
 ---
 
-## 🔧 4. ASYMMETRICAL PROPULSION CORE & POWER DISTRIBUTION NETWORK
+## 🎤 4. VOICE-CONTROLLED PROPULSION (ACOUSTIC THROTTLE)
+
+### 4.1 Overview
+The Kitty Hawk 2.0 is controlled by the pilot's vocal resonance—humming or vocalizing into the cabin microphone array. The system processes the audio through a vectorized FFT loop, mapping pitch to throttle states.
+
+### 4.2 Vocal Frequency Tracking
+
+| Parameter | Value | Function |
+|-----------|-------|----------|
+| **Min Frequency** | 120 Hz | Base Hover — minimum propulsion |
+| **Max Frequency** | 240 Hz | Maximum Boost — full acceleration |
+| **FFT Window** | 512 samples | 2^9, honoring the 3-6-9 constraint |
+| **Sampling Rate** | 8000 Hz | Standard audio resolution |
+
+### 4.3 Flight Modes
+
+| Mode | Throttle Range | Description |
+|------|----------------|-------------|
+| **IDLE** | 0.0 – 0.01 | No propulsion, standby |
+| **HOVER** | 0.01 – 0.3 | Low-power station-keeping |
+| **CRUISE** | 0.3 – 0.7 | Standard forward flight |
+| **BOOST** | 0.7 – 0.95 | High-speed acceleration |
+| **EMERGENCY_OVERRIDE** | 0.95 – 1.0 | Maximum power, safety override |
+
+### 4.4 Harmonic Alignment
+The system checks if the detected vocal frequency aligns with the 70.47 Hz base clock harmonics. Perfect alignment (e.g., 140.94 Hz = 2×, 211.41 Hz = 3×) provides optimal propulsion efficiency with zero phase drift.
+
+### 4.5 Integration with The Root
+The FFT data is transmitted wirelessly via the Universal Puck interface to **Volume 7 (The Root)** . The quantum core processes the data in real time, adjusting field shapes and counter-rotating vector harmonics for smooth, responsive flight control.
+
+---
+
+## 🔧 5. ASYMMETRICAL PROPULSION CORE & POWER DISTRIBUTION NETWORK
 
 The propulsion framework utilizes continuous, clock-locked energy exchanges between upper and lower High-Temperature Superconducting (HTS) toroidal channels.
 
-### 4.1 Advanced Cryogenic Shielding Directives
+### 5.1 Advanced Cryogenic Shielding Directives
 
 | Feature | Specification |
 |---------|---------------|
 | **Thermal Baseline Limit** | Enforced continuous stable operation at **-196°C (77 Kelvin)** |
 | **Cooling System Topology** | Solid-State Thermoacoustic Stirling Cryocoolers linked directly to hyper-conductive Chemical Vapor Deposition (CVD) diamond thermal highways. This design moves heat away using high-frequency acoustic waves inside sealed gas chambers, entirely eliminating mechanical fluid pumps |
 
-### 4.2 High-Voltage Power Distribution Network
+### 5.2 High-Voltage Power Distribution Network
 
 | Feature | Specification |
 |---------|---------------|
@@ -93,11 +125,11 @@ The propulsion framework utilizes continuous, clock-locked energy exchanges betw
 
 ---
 
-## 🧮 5. REAL-TIME INERTIAL FRAME CALIBRATION (NULL-ZONE MATH)
+## 🧮 6. REAL-TIME INERTIAL FRAME CALIBRATION (NULL-ZONE MATH)
 
 The vehicle utilizes a synchronized array of external IMUs compared directly against internal cabin reference IMUs via an **asynchronous Kalman filter matrix**. The system maps the delta (ΔG = a_external - a_internal) to drive the real-time vector cancellation loops.
 
-### 5.1 Inversion Control Implementation (C++ Function Excerpt)
+### 6.1 Inversion Control Implementation (C++ Function Excerpt)
 
 ```cpp
 void kh_execute_inertial_null_cancellation(uint16_t out_node_phases[], float& out_node_amplitude) {
